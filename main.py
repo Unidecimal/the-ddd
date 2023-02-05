@@ -1,8 +1,13 @@
 import pygame
 import sys
+
+import settings
 from settings import *
 from map import *
 from player import *
+from raycasting import *
+
+
 
 
 class Game:
@@ -12,16 +17,19 @@ class Game:
         self.clock = pygame.time.Clock()
         self.delta_time = 1
         self.new_game()
+        self.FOV = settings.FOV
 
     def new_game(self):
         self.map = Map(self)
         self.player = Player(self)
+        self.raycasting = RayCasting(self)
 
     def update(self):
         self.player.update()
+        self.raycasting.update()
         pygame.display.flip()
         self.delta_time = self.clock.tick(FPS)
-        pygame.display.set_caption(f"{self.clock.get_fps() :.2f}")
+        pygame.display.set_caption(f"FPS {self.clock.get_fps() :.2f} FOV {((180 / math.pi) * self.FOV ) :.1f}")
 
     def draw(self):
         self.screen.fill("black")
