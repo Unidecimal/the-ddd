@@ -2,6 +2,8 @@ import math
 
 #  Basic game settings
 RES = WIDTH, HEIGHT = 1700, 1900
+HALF_WITH = WIDTH // 2
+HALF_HEIGHT = HEIGHT // 2
 FPS = 60
 
 PLAYER_POS = 1.5, 5  #For mini map
@@ -17,4 +19,7 @@ HALF_NUM_RAYS = NUM_RAYS // 2
 DELTA_ANGLE = FOV / NUM_RAYS
 MAX_DEPTH = 20
 
+# Projecting map
+SCREEN_DIST = HALF_WITH / math.tan(HALF_FOV)
+SCALE = WIDTH // NUM_RAYS
 

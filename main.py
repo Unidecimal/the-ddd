@@ -8,8 +8,6 @@ from player import *
 from raycasting import *
 
 
-
-
 class Game:
     def __init__(self):
         pygame.init()
@@ -33,8 +31,9 @@ class Game:
 
     def draw(self):
         self.screen.fill("black")
-        self.map.draw()
-        self.player.draw()
+        # FOR DEBUG DRAW
+        # self.map.draw()
+        # self.player.draw()
 
     def run(self):
         while True:
