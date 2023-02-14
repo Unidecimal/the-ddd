@@ -3,10 +3,10 @@ from settings import *
 
 
 class ObjectRenderer:
-    def __int__(self, game):
+    def __init__(self, game):
         self.game = game
         self.screen = game.screen
-        self.wall_textures = self.load_wall_texture()
+        self.wall_textures = self.load_wall_textures()
 
     def draw(self):
         self.render_game_objects()
@@ -21,7 +21,7 @@ class ObjectRenderer:
         texture = pygame.image.load(path).convert_alpha()
         return pygame.transform.scale(texture, res)
 
-    def load_wall_texture(self):
+    def load_wall_textures(self):
         return {
             1: self.get_texture("resources/textures/1.jpg"),
             2: self.get_texture("resources/textures/2.jpg"),
